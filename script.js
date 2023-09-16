@@ -5,10 +5,7 @@ let arr = [
 ];
 
 function PrintDeveloper() {
-
   const developers = arr.filter(per => per.profession === 'developer');
-
-  // Log the list of developers to the console
   console.log('Developers:');
   console.log(developers);
 }
