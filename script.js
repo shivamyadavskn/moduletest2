@@ -4,72 +4,89 @@ let arr = [
   { id: 3, name: 'karen', age: 19, profession: 'admin', salary: 900 },
 ];
 
-// 1. Print all developers from the array whose salary is above the average salary of the array.
-function PrintHighEarningDevelopers() {
-  //Write your code here , just console.log
+function PrintDeveloper() {
+
+  const developers = arr.filter(per => per.profession === 'developer');
+
+  // Log the list of developers to the console
+  console.log('Developers:');
+  console.log(developers);
 }
 
-// 2. Using a recursive function, add a new data object to the array until the user says 'no' via a prompt.
-function recursiveAddData() {
-  //Write your code here, just console.log
+function addData() {
+  const id = parseInt(prompt("Enter ID"));
+  const name = prompt("Enter Name");
+  const age = parseInt(prompt("Enter Age"));
+  const profession = prompt("Enter Profession");
+  const salary = parseFloat(prompt("Enter salary"));
+
+  const data = { "id": id, "name": name, "age": age, "profession": profession, "salary": salary };
+  arr.push(data);
 }
 
-// 3. Remove the youngest and oldest person from the array.
-function removeYoungestAndOldest() {
-  //Write your code here, just console.log
+function removeAdmin() {
+  data = arr.filter(per => per.profession != 'admin');
+  console.log("Developer");
+  console.log(data);
 }
 
-// 4. Merge two arrays (use a dummy array for demonstration) such that the resulting array has no duplicate professions.
-function mergeAndFilterProfessions() {
-  //Write your code here, just console.log
+function concatenateArray() {
+  let dummyArray = [
+    { id: 70, name: 'john', age: 18, profession: 'developer', salary: 1000 },
+    { id: 80, name: 'jack', age: 20, profession: 'developer', salary: 1100 },
+    { id: 90, name: 'karen', age: 19, profession: 'admin', salary: 900 },
+  ];
+
+  const concatenetedArray = arr.concat(dummyArray);
+
+  console.log('Concatenated Array:');
+  console.log(concatenetedArray);
+
 }
 
-// 5. Find the person with the highest salary and reduce their salary by 10% as tax.
-function applyTax() {
-  //Write your code here, just console.log
+function averageAge() {
+  const sumOfAges = arr.reduce((total, person) => total + person.age, 0);
+  const average = sumOfAges / arr.length;
+  console.log('Average Age:', average);
 }
 
-// 6. Check if every person in the array is a developer.
-function isEveryoneDeveloper() {
-  //Write your code here, just console.log
+function checkAgeAbove25() {
+  const isAbove25 = arr.some(person => person.age > 25);
+  if (isAbove25) {
+    console.log('There is at least one person above the age of 25.');
+  } else {
+    console.log('There is no person above the age of 25.');
+  }
 }
 
-// 7. Swap the professions of the first and last person in the array.
-function swapProfessions() {
-  //Write your code here, just console.log
+function uniqueProfessions() {
+  const uniqueProfessionsSet = new Set();
+  arr.forEach(person => uniqueProfessionsSet.add(person.profession));
+  const uniqueProfessionsArray = [...uniqueProfessionsSet];
+  console.log('Unique Professions:', uniqueProfessionsArray);
 }
 
-// 8. Using the `map` method, add a new property to each person called 'experience' with a default value of 1 year.
-function addExperienceProperty() {
-  //Write your code here, just console.log
+function sortByAge()
+ {
+  arr.sort((a, b) => a.age - b.age);
+  console.log('Sorted by Age (Ascending):', arr);
 }
 
-// 9. Group persons by profession and count them. E.g., {developer: 2, admin: 1}.
-function groupByProfession() {
-  //Write your code here, just console.log
+function updateJohnsProfession() {
+  const johnIndex = arr.findIndex(person => person.name === 'john');
+  if (johnIndex !== -1) {
+    arr[johnIndex].profession = 'manager';
+    console.log("'John's profession updated to 'manager'.");
+  } else {
+    console.log('Person with name "john" not found.');
+  }
 }
 
-// 10. Find the person who has a name with the longest length and capitalize their profession.
-function capitalizeLongestNamedPersonProfession() {
-  //Write your code here, just console.log
+function getTotalProfessions() {
+  const developers = arr.filter(person => person.profession === 'developer');
+  const admins = arr.filter(person => person.profession === 'admin');
+  console.log('Total Developers:', developers.length);
+  console.log('Total Admins:', admins.length);
 }
 
-// 11. Create a function that shuffles the array in a random order.
-function shuffleArray() {
-  //Write your code here, just console.log
-}
 
-// 12. Create a function that rotates the array to the right by n steps, where n is provided as an argument.
-function rotateArray(n) {
-  //Write your code here, just console.log
-}
-
-// 13. Create a function that finds the person with the closest age to a given number.
-function findClosestAge(age) {
-  //Write your code here, just console.log
-}
-
-// 14. Create a function that checks if there's any repeated name in the array.
-function hasRepeatedNames() {
-  //Write your code here, just console.log
-}
