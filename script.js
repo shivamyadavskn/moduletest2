@@ -22,10 +22,11 @@ function addData() {
 }
 
 function removeAdmin() {
-  data = arr.filter(per => per.profession != 'admin');
-  console.log("Developer");
+  const data = arr.filter(per => per.profession !== 'admin');
+  console.log('Admins:');
   console.log(data);
 }
+
 
 function concatenateArray() {
   let dummyArray = [
